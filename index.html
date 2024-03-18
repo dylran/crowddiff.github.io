@@ -1,27 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="description"
         content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><i>CrowdDiff</i>: Multi-hypothesis Crowd Density Estimation with Diffusion Models</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
+  <title>CrowdDiff</title>
+  <link rel="icon" href="./static/images/jhu_web.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -39,10 +26,44 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    table {
+      width: 100%; /* Adjusted to fit similar to LaTeX's resizebox */
+      margin: auto; /* Center the table */
+      border-collapse: collapse;
+      table-layout: fixed; /* Ensures equal column widths */
+    }
+    th, td {
+      border: 1px solid black;
+      text-align: center; /* Center aligns text by default */
+      padding: 8px;
+    }
+    /* Left-aligns the first column specifically */
+    th:first-child, td:first-child {
+      text-align: left; /* Ensures content is left-aligned */
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    /* Adjusts width for all columns equally */
+    th, td {
+      width: 6%; /* Example base width, adjust based on the total number of columns */
+    }
+    /* Specific width adjustments for the first two columns, making them 50% wider */
+    th:nth-child(1), td:nth-child(1),
+    th:nth-child(2), td:nth-child(2) {
+      width: 5%; /* Adjust as needed to achieve desired width */
+    }
+    .red { color: red; } /* For the best results */
+    .blue { color: blue; } /* For the second-best results */
+  </style>
 </head>
+
+
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
@@ -80,7 +101,7 @@
     </div>
 
   </div>
-</nav>
+</nav> -->
 
 
 <section class="hero">
@@ -88,39 +109,31 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-1 publication-title"><span class="dnerf">CrowdDiff:</span> Multi-hypothesis Crowd Density Estimation using Diffusion Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
+              <a href="https://dylran.github.io">Yasiru Ranasinghe</a>,
             </span>
             <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
+              <a href="https://nithin-gk.github.io/">Nithin Gopalakrishnan Nair</a>,
             </span>
             <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
+              <a href="https://www.wgcban.com/">Wele Gedara Chaminda Bandara</a>,
             </span>
             <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+              <a href="https://engineering.jhu.edu/vpatel36/team/vishalpatel/">Vishal M Patel</a>,
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+            <span class="author-block">Johns Hopkins Univeristy,</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href="https://dylran.github.io/crowddiff.github.io/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -129,7 +142,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
+                <a href="https://dylran.github.io/crowddiff.github.io/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -137,7 +150,7 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
+              <!-- Video Link.
               <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
                    class="external-link button is-normal is-rounded is-dark">
@@ -146,10 +159,10 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
+                <a href="https://dylran.github.io/crowddiff.github.io/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -157,7 +170,7 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
+              <!-- Dataset Link.
               <span class="link-block">
                 <a href="https://github.com/google/nerfies/releases/tag/0.1"
                    class="external-link button is-normal is-rounded is-dark">
@@ -166,6 +179,7 @@
                   </span>
                   <span>Data</span>
                   </a>
+              </span> -->
             </div>
 
           </div>
@@ -177,22 +191,17 @@
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
+    <div class="hero-body" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+      <img src="./static/crowddiff/jhu 01.gif" alt="GIF 1" style="width: 24%; height: auto;">
+      <img src="./static/crowddiff/jhu 02.gif" alt="GIF 2" style="width: 24%; height: auto;">
+      <img src="./static/crowddiff/shha.gif" alt="GIF 3" style="width: 22.5%; height: auto;">
+      <img src="./static/crowddiff/ucf qnrf.gif" alt="GIF 4" style="width: 21%; height: auto;">
     </div>
   </div>
 </section>
 
 
-<section class="hero is-light is-small">
+<!-- <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
@@ -247,70 +256,334 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
+<!-- Abstract Section -->
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Crowd counting is a fundamental problem in crowd analysis which is typically accomplished 
+            by estimating a crowd density map and summing over the density values. However, this 
+            approach suffers from background noise accumulation and loss of density due to the use of 
+            broad Gaussian kernels to create the ground truth density maps. This issue can be overcome 
+            by narrowing the Gaussian kernel. However, existing approaches perform poorly when trained 
+            with ground truth density maps with broad kernels. To deal with this limitation, we propose 
+            using conditional diffusion models to predict density maps, as diffusion models show high 
+            fidelity to training data during generation. With that, we present 
+            <span class="dnerf">CrowdDiff</span> that generates the crowd density map as a reverse 
+            diffusion process. Furthermore, as the intermediate time steps of the diffusion process 
+            are noisy, we incorporate a regression branch for direct crowd estimation only during 
+            training to improve the feature learning. In addition, owing to the stochastic nature of 
+            the diffusion model, we introduce producing multiple density maps to improve the counting
+            performance contrary to the existing crowd counting pipelines. We conduct extensive 
+            experiments on publicly available datasets to validate the effectiveness of our method.
+            <span class="dnerf">CrowdDiff</span> outperforms existing state-of-the-art crowd counting 
+            methods on several public crowd analysis benchmarks with significant improvements.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
+  </div>
+</section>
 
-    <!-- Paper video. -->
+<!-- Performance with Crowd Counting Datasets -->
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="column is-full">
+        <h2 class="title is-3">Performance on Public Crowd Benchmarks</h2>
+        <div class="table-container" style="overflow-x: auto;">
+          <table>
+            <caption>Comparison with SOTA methods on the public crowd analysis benchmarks:
+              JHU-Crowd++, ShanghaiTech, UCF, and NWPU-Crowd.
+              The best results are shown in <span class="red">red</span>.
+              The second-best results are shown in <span class="blue">blue</span>.
+            </caption>
+            <thead>
+              <tr>
+                <th rowspan="2">Method</th>
+                <th rowspan="2">Venue</th>
+                <th colspan="2">JHU</th>
+                <th colspan="2">SHA</th>
+                <!-- <th colspan="2">SHB</th> -->
+                <th colspan="2">UCF</th>
+                <th colspan="2">QNRF</th>
+                <th colspan="2">NWPU</th>
+              </tr>
+              <tr>
+                <!-- Second row headers -->
+                <td>MAE↓</td>
+                <td>MSE↓</td>
+                <td>MAE↓</td>
+                <td>MSE↓</td>
+                <td>MAE↓</td>
+                <td>MSE↓</td>
+                <td>MAE↓</td>
+                <td>MSE↓</td>
+                <td>MAE↓</td>
+                <td>MSE↓</td>
+                <!-- <td>MAE↓</td>
+                <td>MSE↓</td> -->
+              </tr>
+            </thead>
+            <tbody>
+               <!-- SUA results --> 
+              <tr>
+                <td><a href="https://arxiv.org/pdf/2107.13271.pdf" target="_blank">SUA</a></td>
+                <td>ICCV'21</td>
+                <td>80.7</td>
+                <td>290.8</td>
+                <td>68.5</td>
+                <td>121.9</td>
+                <td>14.1</td>
+                <td>20.6</td>
+                <!-- <td>-</td>
+                <td>-</td> -->
+                <td>130.3</td>
+                <td>226.3</td>
+                <td>111.7</td>
+                <td>443.2</td>
+              </tr>
+              <!-- CHFL results --> 
+              <tr>
+                <td><a href="              https://openaccess.thecvf.com/content/CVPR2022/papers/Shu_Crowd_Counting_in_the_Frequency_Domain_CVPR_2022_paper.pdf
+                  " target="_blank">ChfL</a></td>
+                <td>CVPR'22</td>
+                <td>57.0</td>
+                <td>235.7</td>
+                <td>57.5</td>
+                <td>94.3</td>
+                <td>6.9</td>
+                <td>11.0</td>
+                <!-- <td>-</td>
+                <td>-</td> -->
+                <td>80.3</td>
+                <td>137.6</td>
+                <td>76.8</td>
+                <td>343.0</td>
+              </tr>
+              
+              <tr>
+                <!-- CLTR results -->                
+                <tr>
+                  <td><a href="https://arxiv.org/pdf/2202.13065.pdf" target="_blank">CLTR</a></td>
+                  <td>ECCV'22</td>
+                  <td>59.5</td>
+                  <td>240.6</td>
+                  <td>56.9</td>
+                  <td>95.2</td>
+                  <td>6.5</td>
+                  <td>10.6</td>
+                  <!-- <td>-</td>
+                  <td>-</td> -->
+                  <td>85.8</td>
+                  <td>141.3</td>
+                  <td>74.3</td>
+                  <td>333.8</td>
+                </tr>
+                
+                <!-- CrowdHat resutls -->
+                <td><a href="https://arxiv.org/pdf/2308.16187.pdf" target="_blank">CrwodHat</a></td>
+                <td>CVPR'23</td>
+                <td class="blue">52.3</td>
+                <td class="blue">211.8</td>
+                <td>51.2</td>
+                <td>81.9</td>
+                <td class="red">5.7</td>
+                <td>9.4</td>
+                <!-- <td>-</td>
+                <td>-</td> -->
+                <td>75.1</td>
+                <td class="blue">126.7</td>
+                <td>68.7</td>
+                <td class="blue">296.9</td>
+              </tr>              
+              <!-- STEERER resutls -->
+              <tr>
+                <td><a href="https://arxiv.org/pdf/2308.10468.pdf" target="_blank">STEERER</a></td>
+                <td>ICCV'23</td>
+                <td>54.3</td>
+                <td>238.3</td>
+                <td>54.5</td>
+                <td>86.9</td>
+                <td>5.8</td>
+                <td class="blue">8.5</td> <!-- Second-best result highlighted -->
+                <!-- <td>-</td>
+                <td>-</td> -->
+                <td class="blue">74.3</td>
+                <td>128.3</td>
+                <td class="blue">63.7</td> <!-- Second-best result highlighted -->
+                <td>309.8</td>
+              </tr>              
+              <!-- PET resutls -->
+              <tr>
+                <td><a href="https://arxiv.org/pdf/2308.13814.pdf" target="_blank">PET</a></td>
+                <td>ICCV'23</td>
+                <td>58.5</td>
+                <td>238.0</td>
+                <td class="blue">49.3</td>
+                <td class="blue">78.8</td>
+                <td>6.2</td>
+                <td>9.7</td>
+                <!-- <td>-</td>
+                <td>-</td> -->
+                <td>79.5</td>
+                <td>144.3</td>
+                <td>74.4</td>
+                <td>328.5</td>
+              </tr>
+              <!-- CrowdDiff resutls -->
+              <tr>
+                <td><span class="dnerf">CrowdDiff</span></td>
+                <td>CVPR'24</td>
+                <td class="red">47.3</td>
+                <td class="red">198.9</td>
+                <td class="red">47.4</td>
+                <td class="red">75.0</td>
+                <td class="red">5.7</td>
+                <td class="red">8.2</td>
+                <!-- <td class="red">160.8</td>
+                <td class="red">225.0</td> -->
+                <td class="red">68.9</td>
+                <td class="red">125.6</td>
+                <td class="red">57.8</td>
+                <td class="red">221.2</td>
+              </tr>
+            </tbody>
+            </table>
         </div>
       </div>
     </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
 
+<!-- CrowdDiff Pipeline Image Section -->
 <section class="section">
   <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><span class="dnerf">CrowdDiff</span> Pipeline</h2>
+        <div class="publication-image">
+          <img src="./static/crowddiff/flow chart.jpg" alt="CrowdDiff Pipeline Flow Chart" style="width: 75%; height: auto;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="columns is-centered">
+
+<!-- Contributions -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Contributions</h2>
+    <div class="content has-text-justified">
+      <p>
+        Stochastic crowd map generation is a key benefit of 
+        diffusion-based generative models. We can see that different 
+        realizations detect individuals that is not present in other realizations.            
+        Though this is a generative model, 
+        the proposed method has reassigned densities perfectly in certain instances, and 
+        for some cases, there is a slight shift in the location between realizations.
+      </p>
+    </div>
+    <div class="hero-body" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px;">
+      <style>
+        .zoom {
+          overflow: hidden;
+          display: flex;
+          justify-content: center; /* Centers the images horizontally */
+          align-items: center; /* Centers the images vertically */
+        }
+      </style>
+      <div class="zoom" style="flex: 1 0 45%; max-width: 49%;">
+        <img src="./static/crowddiff/stochastic generation/stochastic 171.jpg" alt="Image 1">
+      </div>
+      <div class="zoom" style="flex: 1 0 45%; max-width: 41%;">
+        <img src="./static/crowddiff/stochastic generation/stochastic 160.jpg" alt="Image 2">
+      </div>
+      <div class="zoom" style="flex: 1 0 48%; max-width: 31%;">
+        <img src="./static/crowddiff/stochastic generation/stochastic 58.jpg" alt="Image 3">
+      </div>
+      <div class="zoom" style="flex: 1 0 48%; max-width: 59%;">
+        <img src="./static/crowddiff/stochastic generation/stochastic 0004.jpg" alt="Image 4">
+      </div>
+      <div class="zoom" style="flex: 1 0 48%; max-width: 92.5%;">
+        <img src="./static/crowddiff/stochastic generation/stochastic 154.jpg" alt="Image 3">
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <!-- <h2 class="title is-3" style="text-align: center;">Contributions</h2> -->
+    <div class="content has-text-justified">
+      <p>
+        Crowd map fusion leverages the stochastic nature of the crowd density maps produced
+        by the diffusion process, and we adopt a systematic way to fuse the maps. 
+        We combine the crowd maps in the order of increasing similarity. 
+        The density kernels accepted by each realization are shown in 
+        <span style="color: green;">green</span> and the rejected kernels are shown in 
+        <span style="color: red;">red</span>.
+      </p>
+    </div>
+    <div class="hero-body" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px;">
+      <style>
+        .zoom {
+          overflow: hidden;
+          display: flex;
+          justify-content: center; /* Centers the images horizontally */
+          align-items: center; /* Centers the images vertically */
+          flex-direction: column; /* Aligns the caption below the image */
+        }
+        figcaption {
+          text-align: center; /* Center-aligns the caption text */
+          margin-top: 10px; /* Adds some space between the image and the caption */
+        }
+      </style>
+      <figure class="zoom" style="flex: 1 0 45%; max-width: 45%;">
+        <img src="./static/crowddiff/trial1 349.jpg" alt="Image 1">
+        <figcaption>Realization 1 count: 349</figcaption>
+      </figure>
+      <figure class="zoom" style="flex: 1 0 45%; max-width: 45%;">
+        <img src="./static/crowddiff/trial2 351.jpg" alt="Image 2">
+        <figcaption>Realization 2 count: 351</figcaption>
+      </figure>
+      <figure class="zoom" style="flex: 1 0 48%; max-width: 45%;">
+        <img src="./static/crowddiff/trial3 356.jpg" alt="Image 3">
+        <figcaption>Realization 3 count: 356</figcaption>
+      </figure>
+      <figure class="zoom" style="flex: 1 0 48%; max-width: 45%;">
+        <img src="./static/crowddiff/trial4 360.jpg" alt="Image 4">
+        <figcaption>Realization 4 count: 360</figcaption>
+      </figure>
+      <figure class="zoom" style="flex: 1 0 48%; max-width: 92.5%;">
+        <img src="./static/crowddiff/final 359.jpg" alt="Image 5">
+        <figcaption>Combined prediction: 359  &nbsp;&nbsp;  Ground truth: 361</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop"> -->
+
+    <!-- <div class="columns is-centered"> -->
 
       <!-- Visual Effects. -->
-      <div class="column">
+      <!-- <div class="column">
         <div class="content">
           <h2 class="title is-3">Visual Effects</h2>
           <p>
@@ -322,11 +595,11 @@
                     type="video/mp4">
           </video>
         </div>
-      </div>
+      </div> -->
       <!--/ Visual Effects. -->
 
       <!-- Matting. -->
-      <div class="column">
+      <!-- <div class="column">
         <h2 class="title is-3">Matting</h2>
         <div class="columns is-centered">
           <div class="column content">
@@ -342,16 +615,16 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Matting. -->
 
     <!-- Animation. -->
-    <div class="columns is-centered">
+    <!-- <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+        <h2 class="title is-3">Animation</h2> -->
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
+        <!-- <h3 class="title is-4">Interpolating states</h3>
         <div class="content has-text-justified">
           <p>
             We can also animate the scene by interpolating the deformation latent codes of two input
@@ -381,11 +654,11 @@
             <p class="is-bold">End Frame</p>
           </div>
         </div>
-        <br/>
+        <br/> -->
         <!--/ Interpolating. -->
 
         <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
+        <!-- <h3 class="title is-4">Re-rendering the input video</h3>
         <div class="content has-text-justified">
           <p>
             Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
@@ -402,16 +675,16 @@
             <source src="./static/videos/replay.mp4"
                     type="video/mp4">
           </video>
-        </div>
+        </div> -->
         <!--/ Re-rendering. -->
 
-      </div>
-    </div>
+      <!-- </div>
+    </div> -->
     <!--/ Animation. -->
 
 
     <!-- Concurrent Work. -->
-    <div class="columns is-centered">
+    <!-- <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Related Links</h2>
 
@@ -434,57 +707,37 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Concurrent Work. -->
 
-  </div>
-</section>
+  <!-- </div>
+</section> -->
 
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+    <pre><code>Coming soon...
+      <!-- @article{ranasinghe2024crowddiff,
+  author    = {Ranasinghe, Yasiru and Nair, Nithin Gopalakrishnan and Bandara, Wele Gedara Chaminda and Patel, Vishal M},
+  title     = {\textit{CrowdDiff}: Multi-hypothesis Crowd Density Estimation using Diffusion Models},
+  journal   = {CVPR},
+  year      = {2024},
+} -->
+</code></pre>
   </div>
 </section>
 
 
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
-      </div>
-    </div>
+<section class="section">
+  <div class="container is-max-desktop content">
+      <h5 class="title" style="font-size: 10px;"> Acknowledgement: The website template is taken from
+          <span class="author-block">
+              <a href="https://nerfies.github.io/" target="_blank">Nerfies</a>
+      </h5>
+
   </div>
-</footer>
+</section>
 
 </body>
 </html>
